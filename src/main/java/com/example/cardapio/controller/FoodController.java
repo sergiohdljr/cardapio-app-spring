@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,12 @@ public class FoodController {
     @GetMapping
     public ResponseEntity<List<Food>> getAll() {
         return new ResponseEntity<>(this.service.getAllFood(), HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/{id}")
+    public ResponseEntity<Food> getFood(@PathVariable("id") String id) {
+        return new ResponseEntity<>(this.service.getFoodById(id), HttpStatus.OK);
     }
 
     // @CrossOrigin(origins = "*", allowedHeaders = "*")

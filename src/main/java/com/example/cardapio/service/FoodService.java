@@ -17,4 +17,9 @@ public class FoodService {
         List<Food> foodList = repository.findAll();
         return foodList;
     }
+
+    public Food getFoodById(String id) {
+        Food food = repository.findById(id).get();
+        return food;
+    }
 }
