@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.cardapio.food.Food;
+import com.example.cardapio.food.FoodRequestDTO;
 import com.example.cardapio.food.foodRepository;
 
 @Service
@@ -21,5 +22,10 @@ public class FoodService {
     public Food getFoodById(String id) {
         Food food = repository.findById(id).get();
         return food;
+    }
+
+    public void addFood(FoodRequestDTO payload) {
+        var newFood = new Food(payload);
+        repository.save(newFood);
     }
 }
