@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,19 +25,16 @@ public class FoodController {
     @Autowired
     FoodService service;
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public ResponseEntity<List<Food>> getAll() {
         return new ResponseEntity<>(this.service.getAllFood(), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/{id}")
     public ResponseEntity<Food> getFood(@PathVariable("id") String id) {
         return new ResponseEntity<>(this.service.getFoodById(id), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/create")
     public ResponseEntity<Object> addFood(@RequestBody FoodRequestDTO payload) {
         this.service.addFood(payload);
