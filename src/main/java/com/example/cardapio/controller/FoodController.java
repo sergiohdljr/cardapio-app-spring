@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +49,12 @@ public class FoodController {
     public ResponseEntity<Object> updateFood(@PathVariable("id") String id, @RequestBody FoodRequestDTO payload) {
         this.service.updateFood(id, payload);
         return new ResponseEntity<Object>("Produto" + " " + id + " " + "atualizado", HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Object> deleteFood(@PathVariable("id") String id) {
+        this.service.deleteFood(id);
+        return new ResponseEntity<Object>("Produto" + " " + id + " " + "deletado com sucesso", HttpStatus.OK);
     }
 
 }

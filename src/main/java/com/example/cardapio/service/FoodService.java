@@ -38,4 +38,8 @@ public class FoodService {
 
         repository.save(food);
     }
+
+    public void deleteFood(String id) {
+        repository.deleteById(id);
+    }
 }
