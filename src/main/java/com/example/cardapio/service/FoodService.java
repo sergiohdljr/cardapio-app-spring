@@ -1,6 +1,7 @@
 package com.example.cardapio.service;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +28,14 @@ public class FoodService {
     public void addFood(FoodRequestDTO payload) {
         var newFood = new Food(payload);
         repository.save(newFood);
+    }
+
+    public void updateFood(String id, FoodRequestDTO body) {
+        Food food = repository.findById(id).get();
+        food.setImage(body.image());
+        food.setPrice(body.price());
+        food.setImage(body.image());
+
+        repository.save(food);
     }
 }

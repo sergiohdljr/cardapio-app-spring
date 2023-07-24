@@ -9,10 +9,12 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Foods")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -25,9 +27,9 @@ public class Food {
     private String image;
     private Integer price;
 
-    public Food(FoodRequestDTO data){
+    public Food(FoodRequestDTO data) {
         this.image = data.image();
-        this.title= data.title();
+        this.title = data.title();
         this.price = data.price();
     }
 
