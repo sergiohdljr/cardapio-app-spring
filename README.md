@@ -6,6 +6,7 @@ O Cardápio App Spring - CRUD é um projeto de aplicativo web desenvolvido em Ja
 **Funcionalidades:**
 - Cadastrar novos pratos no cardápio.
 - Visualizar todos os pratos disponíveis no cardápio.
+- Visualizar prato especifico.
 - Editar informações de um prato existente.
 - Excluir pratos do cardápio.
 
